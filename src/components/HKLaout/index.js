@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { TabBar } from 'antd-mobile';
+import { withRouter } from "react-router-dom"
 import './index.css'
-/* 
-    用來顯示底部的tabbar
-*/
 
-export default class HKLayout extends Component {
+class HKLayout extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,106 +15,63 @@ export default class HKLayout extends Component {
             <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
                 <TabBar
                     unselectedTintColor="#949494"
-                    tintColor="#33A3F4"
+                    tintColor="red"
                     barTintColor="white"
                 >
                     <TabBar.Item
                         title="首页"
-                        key="Life"
-                        icon={<div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
-                        }}
-                        />
+                        key="Home"
+                        icon={<i className="iconfont icon-ind"></i>
                         }
-                        selectedIcon={<div style={{
-                            width: '22px',
-                            height: '22px',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
-                        }}
-                        />
+                        selectedIcon={<i className="iconfont icon-ind"></i>
                         }
-                        selected={this.state.selectedTab === 'blueTab'}
-                        badge={1}
+                        selected={this.props.match.path === '/'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'blueTab',
-                            });
+                            this.props.history.push("/");
                         }}
-                        data-seed="logId"
                     >
                         {this.props.children}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
-                            <div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
-                            }}
-                            />
+                            <i className="iconfont icon-findHouse"></i>
                         }
                         selectedIcon={
-                            <div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
-                            }}
-                            />
+                            <i className="iconfont icon-findHouse"></i>
                         }
                         title="找房"
-                        key="Koubei"
-                        badge={'new'}
-                        selected={this.state.selectedTab === 'redTab'}
+                        key="findHouse"
+                        selected={this.props.match.path === '/list'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'redTab',
-                            });
+                            this.props.history.push('/list')
                         }}
-                        data-seed="logId1"
                     >
                         {this.props.children}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
-                            <div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
-                            }}
-                            />
+                            <i className="iconfont icon-infom"></i>
                         }
                         selectedIcon={
-                            <div style={{
-                                width: '22px',
-                                height: '22px',
-                                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat'
-                            }}
-                            />
+                            <i className="iconfont icon-infom"></i>
                         }
                         title="资讯"
-                        key="Friend"
-                        dot
-                        selected={this.state.selectedTab === 'greenTab'}
+                        key="info"
+                        selected={this.props.match.path==='/info'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'greenTab',
-                            });
+                           this.props.history.push('/info')
                         }}
                     >
                         {this.props.children}
                     </TabBar.Item>
                     <TabBar.Item
-                        icon={{ uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' }}
-                        selectedIcon={{ uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' }}
+                        icon={<i className="iconfont icon-myinfo"></i>}
+                        selectedIcon={<i className="iconfont icon-myinfo"></i>}
                         title="我的"
                         key="my"
-                        selected={this.state.selectedTab === 'yellowTab'}
+                        selected={this.props.match.path==='/profile'}
                         onPress={() => {
-                            this.setState({
-                                selectedTab: 'yellowTab',
-                            });
+                           this.props.history.push('/profile')
                         }}
                     >
                         {this.props.children}
@@ -126,3 +81,4 @@ export default class HKLayout extends Component {
         );
     }
 }
+export default withRouter(HKLayout)
