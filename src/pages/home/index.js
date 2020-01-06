@@ -18,7 +18,8 @@ export default class index extends Component {
       { id: 3, imgSrc: Nav3, title: "地图找房" },
       { id: 4, imgSrc: Nav4, title: "去出租" },
     ],
-    news: []
+    news: [],
+    home_group: []
   }
   componentDidMount() {
     //轮播图
@@ -32,6 +33,12 @@ export default class index extends Component {
     axios.get('/home/news').then(res => {
       this.setState({
         news: res.body
+      })
+    })
+    //租房小组
+    axios.get('/home/groups').then(res => {
+      this.setState({
+        home_group: res.body
       })
     })
   }
@@ -72,32 +79,57 @@ export default class index extends Component {
             }
           </div>
         </div>
-        <div className='hk_new'>
-        <div className='hk_news'>
-          <div className="hk_news_title">
-            最新资讯
+        <div className='hk_group'>
+          <div className='hk_group_title'>
+            <span>租房小组</span>
+            <span>更多</span>
           </div>
-          <div className="hk_news_content">
+          <div className="hk_group_content">
             {
-              this.state.news.map(v =>
-                <div className="hk_news_item" key={v.id}>
-                  <div className="hk_news_img_wrapper">
-                    <img src={API_URL + v.imgSrc} alt=""></img>
+              this.state.home_group.map(v =>
+                <div className="hk_group_item" key={v.id}>
+                  <div className="hk_group_item_desc">
+                    <div className="hk_group_item_titleone">
+                      {v.title}
+                    </div>
+                    <div className="hk_group_item_titletwo">
+                      {v.desc}
+                    </div>
                   </div>
-                  <div className="hk_news_item_info">
-                    <div className="hk_news_item_info_top">
-                      <span>{v.title}</span>
-                    </div>
-                    <div className="hk_news_item_info_bottom">
-                      <div className="hk_news_item_info_from">{v.from}</div>
-                      <div className="hk_news_item_info_to">{v.date}</div>
-                    </div>
+                  <div className="hk_group_imageWrapper">
+                    <img src={API_URL + v.imgSrc}></img>
                   </div>
                 </div>
               )
             }
           </div>
         </div>
+        <div className='hk_new'>
+          <div className='hk_news'>
+            <div className="hk_news_title">
+              最新资讯
+          </div>
+            <div className="hk_news_content">
+              {
+                this.state.news.map(v =>
+                  <div className="hk_news_item" key={v.id}>
+                    <div className="hk_news_img_wrapper">
+                      <img src={API_URL + v.imgSrc} alt=""></img>
+                    </div>
+                    <div className="hk_news_item_info">
+                      <div className="hk_news_item_info_top">
+                        <span>{v.title}</span>
+                      </div>
+                      <div className="hk_news_item_info_bottom">
+                        <div className="hk_news_item_info_from">{v.from}</div>
+                        <div className="hk_news_item_info_to">{v.date}</div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              }
+            </div>
+          </div>
         </div>
       </Fragment>
     )
