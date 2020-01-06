@@ -10,21 +10,29 @@ import './index.css'
 
 export default class index extends Component {
   state = {
-    swiper_list:JSON.parse(localStorage.getItem('swiper'))||[],
+    swiper_list: JSON.parse(localStorage.getItem('swiper')) || [],
     imgHeight: '212',
     navs: [
       { id: 1, imgSrc: Nav1, title: "整租" },
       { id: 2, imgSrc: Nav2, title: "合租" },
       { id: 3, imgSrc: Nav3, title: "地图找房" },
       { id: 4, imgSrc: Nav4, title: "去出租" },
-    ]
+    ],
+    news: []
   }
   componentDidMount() {
+    //轮播图
     axios.get('/home/swiper').then(res => {
       this.setState({
         swiper_list: res.body
       })
-      localStorage.setItem('swiper',JSON.stringify(res.body))
+      localStorage.setItem('swiper', JSON.stringify(res.body))
+    })
+    //资讯列表
+    axios.get('/home/news').then(res => {
+      this.setState({
+        news: res.body
+      })
     })
   }
   render() {
@@ -63,6 +71,33 @@ export default class index extends Component {
               </div>)
             }
           </div>
+        </div>
+        <div className='hk_new'>
+        <div className='hk_news'>
+          <div className="hk_news_title">
+            最新资讯
+          </div>
+          <div className="hk_news_content">
+            {
+              this.state.news.map(v =>
+                <div className="hk_news_item" key={v.id}>
+                  <div className="hk_news_img_wrapper">
+                    <img src={API_URL + v.imgSrc} alt=""></img>
+                  </div>
+                  <div className="hk_news_item_info">
+                    <div className="hk_news_item_info_top">
+                      <span>{v.title}</span>
+                    </div>
+                    <div className="hk_news_item_info_bottom">
+                      <div className="hk_news_item_info_from">{v.from}</div>
+                      <div className="hk_news_item_info_to">{v.date}</div>
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+          </div>
+        </div>
         </div>
       </Fragment>
     )

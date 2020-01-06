@@ -1,5 +1,4 @@
 .hk_home {
-  height: 100vh;
   background-color: #f6f5f6;
   position: relative;
 }
@@ -27,4 +26,44 @@
 .hk_home .hk_nav .hk_nav_item p {
   padding-top: 10px;
   margin: 0;
+}
+.hk_new {
+  background-color: #fff;
+}
+.hk_new .hk_news {
+  margin: 0 15px;
+}
+.hk_new .hk_news .hk_news_title {
+  height: 40px;
+  padding-top: 18px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.hk_new .hk_news .hk_news_content .hk_news_item {
+  padding: 12px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e5e5;
+}
+.hk_new .hk_news .hk_news_content .hk_news_item:last-child {
+  border-bottom: none;
+}
+.hk_new .hk_news .hk_news_content .hk_news_item .hk_news_img_wrapper img {
+  width: 120px;
+  height: 90px;
+}
+.hk_new .hk_news .hk_news_content .hk_news_item .hk_news_item_info {
+  padding: 0 15px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hk_new .hk_news .hk_news_content .hk_news_item .hk_news_item_info_bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #9c9fa1;
+  font-weight: 400;
 }
