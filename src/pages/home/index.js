@@ -10,8 +10,8 @@ import './index.css'
 
 export default class index extends Component {
   state = {
-    swiper_list: [],
-    imgHeight: 212,
+    swiper_list:JSON.parse(localStorage.getItem('swiper'))||[],
+    imgHeight: '212',
     navs: [
       { id: 1, imgSrc: Nav1, title: "整租" },
       { id: 2, imgSrc: Nav2, title: "合租" },
@@ -24,6 +24,7 @@ export default class index extends Component {
       this.setState({
         swiper_list: res.body
       })
+      localStorage.setItem('swiper',JSON.stringify(res.body))
     })
   }
   render() {

@@ -30,7 +30,7 @@ class HKLayout extends Component {
                             this.props.history.push("/");
                         }}
                     >
-                        {this.props.children}
+                        {this.props.match.path==='/'&&this.props.children}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
@@ -46,7 +46,7 @@ class HKLayout extends Component {
                             this.props.history.push('/list')
                         }}
                     >
-                        {this.props.children}
+                        {this.props.match.path==='/list'&&this.props.children}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={
@@ -62,7 +62,7 @@ class HKLayout extends Component {
                            this.props.history.push('/info')
                         }}
                     >
-                        {this.props.children}
+                        {this.props.match.path==='/info'&&this.props.children}
                     </TabBar.Item>
                     <TabBar.Item
                         icon={<i className="iconfont icon-myinfo"></i>}
@@ -74,7 +74,7 @@ class HKLayout extends Component {
                            this.props.history.push('/profile')
                         }}
                     >
-                        {this.props.children}
+                        {this.props.match.path==='/profile'&&this.props.children}
                     </TabBar.Item>
                 </TabBar>
             </div>

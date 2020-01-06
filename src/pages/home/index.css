@@ -23,5 +23,8 @@
 }
 .hk_home .hk_nav .hk_nav_item img {
   width: 48px;
-  margin: auto;
+}
+.hk_home .hk_nav .hk_nav_item p {
+  padding-top: 10px;
+  margin: 0;
 }
