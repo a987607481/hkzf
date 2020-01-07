@@ -5,6 +5,8 @@ import Info from './pages/info'
 import List from './pages/list'
 import Profile from './pages/profile'
 import HKLayout from "./components/HKLaout"
+import CityList from "./pages/CityList"
+import BMap from "./pages/BMap"
 
 export default class App extends Component {
   render() {
@@ -15,6 +17,8 @@ export default class App extends Component {
           <Route path='/info' exact render={(props)=><HKLayout> <Info {...props}></Info></HKLayout>}></Route>
           <Route path='/list' exact render={(props)=><HKLayout><List {...props}></List></HKLayout>}></Route>
           <Route path='/profile' exact render={(props)=><HKLayout><Profile {...props}></Profile></HKLayout>}></Route>
+          <Route path="/citylist" exact render={() => <CityList/>} />
+          <Route path="/bmap" exact render={() =><BMap/>} />
         </Router>
       </Fragment>
     )

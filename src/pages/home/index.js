@@ -6,6 +6,7 @@ import Nav1 from '../../assets/images/nav-1.png'
 import Nav2 from '../../assets/images/nav-2.png'
 import Nav3 from '../../assets/images/nav-3.png'
 import Nav4 from '../../assets/images/nav-4.png'
+import SearchInput from "../../components/SearchInput"
 import './index.css'
 
 export default class index extends Component {
@@ -46,6 +47,9 @@ export default class index extends Component {
     return (
       <Fragment>
         <div className="hk_home">
+          <div className="hk_search_input">
+            <SearchInput />
+          </div>
           <div className="hk_swiper">
             <Carousel
               autoplay={true}

@@ -1,0 +1,40 @@
+.search_input {
+  display: flex;
+  height: 35px;
+  width: 100%;
+  overflow: hidden;
+}
+.search_input .search_input_content {
+  margin-left: 20px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  flex: 8;
+  border-radius: 5px;
+}
+.search_input .search_input_content .search_input_city {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid #ccc;
+}
+.search_input .search_input_content .search_input_inp {
+  display: flex;
+  align-items: center;
+}
+.search_input .search_input_content .search_input_inp i.iconfont.icon-seach {
+  padding: 0 10px;
+}
+.search_input .search_input_content .search_input_inp span {
+  color: #ccc;
+}
+.search_input .search_input_map {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.search_input .search_input_map i.iconfont.icon-map {
+  font-size: 24px;
+}
