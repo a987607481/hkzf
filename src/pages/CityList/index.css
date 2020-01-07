@@ -1,0 +1,39 @@
+.city_list {
+  height: calc(100vh - 45px);
+  background-color: white;
+}
+.city_list .city_item .city_title {
+  height: 20px;
+  font-size: 14px;
+  padding: 10px 15px;
+  color: #999;
+}
+.city_list .city_item .city_label {
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  padding: 0 15px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+.city_list .city_key_arrs {
+  text-align: center;
+  position: fixed;
+  top: 50px;
+  right: 5px;
+}
+.city_list .city_key_arrs .city_key_item {
+  margin: 7px 0;
+  font-size: 14px;
+  padding: 3px;
+}
+.city_list .city_key_arrs .active {
+  font-size: 12px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #21b97a;
+  color: #fff;
+  border-radius: 50%;
+}
