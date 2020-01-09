@@ -4,8 +4,12 @@ import { NavBar, Icon } from 'antd-mobile';
 import { AutoSizer, List } from 'react-virtualized';
 import 'react-virtualized/styles.css';
 import './index.css'
+import store from "../../store"
+import { setCityNameAction } from "../../store/actionCreator"
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 
-export default class Index extends Component {
+class Index extends Component {
   state = {
     all_cities: [],
     key_arrs: [],
@@ -17,7 +21,7 @@ export default class Index extends Component {
   getAllCities = async (params) => {
     let hot_cities = (await axios.get('/area/hot')).body
     let all_cities = [
-      { "当前城市": ["广州"] },
+      { "当前城市": [this.props.cityName] },
       { "热门城市": hot_cities.map(v => v.label) }
     ]
     let cityList = (await axios.get('/area/city?level=1')).body
@@ -83,7 +87,10 @@ export default class Index extends Component {
       <div className='city_title'>{key_name}</div>
       {
         list.map((v, i) =>
-          <div key={i} className='city_label'>{v}</div>
+          <div key={i} className='city_label' onClick ={(params)=>{
+            store.dispatch(setCityNameAction(v));
+            this.props.history.push("/");
+          }}>{v}</div>
         )
       }
     </div>
@@ -128,3 +135,9 @@ export default class Index extends Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    cityName: state.cityName
+  }
+}
+export default connect(mapStateToProps, null)(withRouter(Index))
