@@ -49,15 +49,13 @@
   font-size: 13px;
 }
 .bMap_content .map_house_list .map_house_list_bottom .map_house_list_content {
-  display: flex;
-  justify-content: space-between;
   margin: 0 10px;
-  border-bottom: 1px solid #ccc;
 }
 .bMap_content .map_house_list .map_house_list_bottom .map_house_list_content .map_house_list_item {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #ccc;
 }
 .bMap_content .map_house_list .map_house_list_bottom .map_house_list_content .map_house_list_item .img_wrapper {
   width: 106px;
@@ -69,6 +67,7 @@
 }
 .bMap_content .map_house_list .map_house_list_bottom .map_house_list_content .map_house_list_item .map_house_list_text {
   padding: 12px;
+  width: 235px;
 }
 .bMap_content .map_house_list .map_house_list_bottom .map_house_list_content .map_house_list_item .map_house_list_text .houseInfo1 {
   padding: 3px;

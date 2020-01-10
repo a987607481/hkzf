@@ -1,0 +1,85 @@
+.am-navbar-left {
+  padding-left: 10px;
+  color: #999;
+}
+.list_header_searchInput {
+  position: relative;
+  height: 0;
+  width: calc(100vw - 25px);
+  left: 20px;
+  top: -40px;
+}
+.list_header_searchInput .icon-map {
+  color: green;
+}
+.list_content {
+  background-color: #fff;
+  height: calc(100vh - 95px);
+  padding: 0 10px;
+}
+.list_content .map_house_list_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.list_content .map_house_list_item .img_wrapper img {
+  width: 106px;
+  height: 80px;
+}
+.list_content .map_house_list_item .map_house_list_text {
+  width: calc(100vw - 120px);
+  padding: 12px;
+  flex: 1;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 3px;
+  font-weight: 600;
+  font-size: 15px;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo2 {
+  padding: 3px;
+  color: #ccc;
+  font-size: 0.8rem;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo3 {
+  display: flex;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo3 span:nth-child(1) {
+  color: #39becd;
+  background-color: #e1f5f8;
+  padding: 3px;
+  margin: 0 2px;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo3 span:nth-child(2) {
+  color: #3fc28c;
+  background-color: #e1f5ed;
+  padding: 3px;
+  margin: 0 2px;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo3 span:nth-child(3) {
+  color: #5aabfd;
+  background-color: #e6f2ff;
+  padding: 3px;
+  margin: 0 2px;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo3 span:nth-child(n+4) {
+  display: none;
+  color: #5aabfd;
+  background-color: #e6f2ff;
+  padding: 3px;
+  margin: 0 2px;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo4 {
+  color: red;
+  padding: 3px;
+  font-size: 12px;
+}
+.list_content .map_house_list_item .map_house_list_text .houseInfo4 span {
+  font-size: 16px;
+  font-weight: bolder;
+}
